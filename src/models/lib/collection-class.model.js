@@ -14,11 +14,11 @@ class Collection {
         }
     }
 
-    async read(id) {
+    async read(userId) {
         let record;
         try {
-            if (id) {
-                record = await this.model.findOne({ where: { id: id } })
+            if (userId) {
+                record = await this.model.findAndCountAll({ where: { userId: userId } })
             } else {
                 record = await this.model.findAll()
             }
