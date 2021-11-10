@@ -7,7 +7,7 @@ const taskRouter = express.Router();
 const bearerAuth = require('../middleware/bearer.auth.js');
 const permissions = require('../middleware/acl.auth');
 
-taskRouter.get('/task',bearerAuth, permissions('read'), getTask);
+taskRouter.get('/task',bearerAuth, permissions('delete'), getTask);
 taskRouter.get('/task/:id',bearerAuth, permissions('read'), getOneTask);
 taskRouter.post('/task', bearerAuth, permissions('create'), createTask);
 taskRouter.put('/task/:id', bearerAuth, permissions('update'), updateTask);
